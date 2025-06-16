@@ -1,0 +1,48 @@
+### Register a new user
+POST http://127.0.0.1:8000/api/auth/register/
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1MjY5LCJpYXQiOjE3NDk3MzM0NjksImp0aSI6IjlhYTRkYWMyNWJjMjQzZDA5NjczNDJlODkyN2U4N2ZkIiwidXNlcl9pZCI6M30._dtyKFZVdhBmLF9P2kXv3ovV78BsvIqncwOqLytCjos
+
+{
+  "username": "test",
+  "password": "test",
+  "email": "test@example.com"
+}
+
+### Login and get JWT token
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1MjY5LCJpYXQiOjE3NDk3MzM0NjksImp0aSI6IjlhYTRkYWMyNWJjMjQzZDA5NjczNDJlODkyN2U4N2ZkIiwidXNlcl9pZCI6M30._dtyKFZVdhBmLF9P2kXv3ovV78BsvIqncwOqLytCjos
+
+
+{
+  "username": "test",
+  "password": "test"
+}
+
+### Replace the token below with the access token from login
+### Create a new book
+POST http://127.0.0.1:8000/api/books/
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM2NTQ4LCJpYXQiOjE3NDk3MzQ3NDgsImp0aSI6ImY4ZmI2Zjg5ZDZiYTQyODM4ZTA2ZjY0OThmZTIyYThmIiwidXNlcl9pZCI6NH0.RxshU3ZSuZmN-Nwx-59hOWxI23MtirkEjBFETmLxkms
+
+{
+  "title": "Django in Action",
+  "author": "Jane Doe",
+  "description": "Learn Django with this guide."
+}
+
+### Get all books
+GET http://127.0.0.1:8000/api/books/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1ODQxLCJpYXQiOjE3NDk3MzQwNDEsImp0aSI6IjU4NjVlYTBhMTAzMDQ4YWU5OGVlNGFlNzQxODk5OGJiIiwidXNlcl9pZCI6NH0.U260vTlSCW-e_8wg-eW6Bp1q_irz3PguxwOIAWDwL8U
+
+### Logout (blacklist refresh token)
+POST http://127.0.0.1:8000/api/auth/logout/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5NzM1ODQxLCJpYXQiOjE3NDk3MzQwNDEsImp0aSI6IjU4NjVlYTBhMTAzMDQ4YWU5OGVlNGFlNzQxODk5OGJiIiwidXNlcl9pZCI6NH0.U260vTlSCW-e_8wg-eW6Bp1q_irz3PguxwOIAWDwL8U
+
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0OTgyMDQ0MSwiaWF0IjoxNzQ5NzM0MDQxLCJqdGkiOiI4MDliZGE2NzZiZTA0OTFmOGU4MjdkZGVkMmQzOTkwMSIsInVzZXJfaWQiOjR9.NIb1phSxRvHrUUf9tviiYSgNmgptKifUBM-AIUcKjsk"
+}
